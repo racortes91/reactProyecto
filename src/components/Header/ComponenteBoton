@@ -1,0 +1,10 @@
+import React from 'react'
+import Navbar from './ComponenteTitulo'
+
+const ComponenteBoton = () => {
+  return (
+    <button>Ver más</button>
+  )
+}
+
+export default App
