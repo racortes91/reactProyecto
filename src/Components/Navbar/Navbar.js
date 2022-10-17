@@ -4,6 +4,7 @@ import { CartWidget } from "../CartWidget/CartWidget";
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 
+
 const Navbar = () => {
   const categorias = [
     { nombre: "Electrónica", id: 0, ruta: "/categoria/electronics" },
@@ -29,7 +30,7 @@ const Navbar = () => {
           );
         })}
       </nav>
-      <Link to="/cart">
+      <Link to="Containers/cart">
         <CartWidget />
       </Link>
     </header>

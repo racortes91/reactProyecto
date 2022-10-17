@@ -12,23 +12,31 @@ export const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
   
   const { id } = useParams();
-  
 
-  const URL_BASE = 'https://fakestoreapi.com/products'
+
+  const URL_BASE = 'https://fakestoreapi.com/products/${id}'
   const URL_CAT = `${URL_BASE}/category/${id}`
+
+ 
 
   useEffect(() => {
     const getProducts = async () => {
-      try {
-        const res = await fetch(URL_CAT);
-        const data = await res.json();
-        setProducts(data);
-      } catch {
-        console.log("error");
-      } finally {
-        setLoading(false);
-      }
-    };
+    // No funciona el ternario.
+      // id = undefined ? URL_BASE : URL_CAT;
+
+      
+        try {
+          const res = await fetch(URL_CAT);
+          const data = await res.json();
+          setProducts(data);
+        } catch {
+          console.log("error");
+        } finally {
+          setLoading(false); 
+        }
+      };
+
+      
     getProducts();
   }, [id]);
 

@@ -1,14 +1,10 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import "./Item.css"
-import {
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-  CardActionArea,
-  CardActions,
-} from "@mui/material";
+import { CardContent, CardMedia, Typography, Button, CardActionArea,CardActions, }
+from "@mui/material";
+import { useParams } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Item = ({ product }) => {
   return (
@@ -35,9 +31,11 @@ const Item = ({ product }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Agreagr al Carrito
-        </Button>
+        <Link to="producto/id">
+          <Button size="small" color="primary">
+            Agregar al Carrito
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
