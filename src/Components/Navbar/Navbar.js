@@ -30,7 +30,7 @@ const Navbar = () => {
           );
         })}
       </nav>
-      <Link to="Containers/cart">
+      <Link to="/cart">
         <CartWidget />
       </Link>
     </header>

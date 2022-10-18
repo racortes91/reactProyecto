@@ -23,7 +23,7 @@ export const ItemListContainer = () => {
     const getProducts = async () => {
     // No funciona el ternario.
       // id = undefined ? URL_BASE : URL_CAT;
-
+      if(!id){
       
         try {
           const res = await fetch(URL_CAT);
@@ -36,6 +36,7 @@ export const ItemListContainer = () => {
         }
       };
 
+      }
       
     getProducts();
   }, [id]);
