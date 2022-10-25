@@ -5,6 +5,7 @@ import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 
 
+
 const Navbar = () => {
   const categorias = [
     { nombre: "Electrónica", id: 0, ruta: "/categoria/electronics" },

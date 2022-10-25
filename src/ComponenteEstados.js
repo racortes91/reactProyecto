@@ -8,8 +8,12 @@ export const ComponenteEstados = ({stock, initial, onAdd}) => {
   useEffect(()=>{
     setNumero(numero + 1);
 
+    const intervalo = setInterval(()=>{
+      console.log("ping");
+    },1000)
+
     return(()=>{
-  
+      clearInterval(intervalo);
     })
   },[]);
 

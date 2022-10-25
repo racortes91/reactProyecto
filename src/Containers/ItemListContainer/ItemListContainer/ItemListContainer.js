@@ -7,39 +7,34 @@ import { MutatingDots } from 'react-loader-spinner'
 
 
 
-export const ItemListContainer = () => {
+
+export const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   
   const { id } = useParams();
-
-
-  const URL_BASE = 'https://fakestoreapi.com/products/${id}'
+  const URL_BASE = 'https://fakestoreapi.com/products'
   const URL_CAT = `${URL_BASE}/category/${id}`
-
- 
 
   useEffect(() => {
     const getProducts = async () => {
-    // No funciona el ternario.
-      // id = undefined ? URL_BASE : URL_CAT;
-      if(!id){
-      
-        try {
-          const res = await fetch(URL_CAT);
-          const data = await res.json();
-          setProducts(data);
-        } catch {
-          console.log("error");
-        } finally {
-          setLoading(false); 
-        }
-      };
-
+      try {
+        const res = await fetch(id ? URL_CAT : URL_BASE);
+        const data = await res.json();
+        const productos = data.map(item => {
+          return {...item, stock:Math.floor(Math.random() * 50)}
+        });
+        console.log(productos);
+        setProducts(productos);
+      } catch {
+        console.log("error");
+      } finally {
+        setLoading(false);
       }
-      
+    };
     getProducts();
-  }, [id]);
+
+  }, [id, URL_BASE, URL_CAT]);
 
   return (
     <>

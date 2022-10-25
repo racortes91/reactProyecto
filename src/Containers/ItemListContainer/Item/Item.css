@@ -1,0 +1,33 @@
+.contendor__producto {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(240, 240, 240);
+  box-shadow: gray 5px 5px 5px;
+  margin: 50px;
+}
+
+.contendor__foto {
+  height: 250px;
+  background-size: cover;
+}
+
+.contendor__titulo {
+  color: black;
+  font-weight: 600;
+
+}
+
+.contendor__precio {
+  color: grey;
+  font-weight: 800;
+  font-size: 20px;
+  
+}
+
+.contendor__link {
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 10px;
+}

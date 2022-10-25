@@ -1,16 +1,19 @@
 import { areArraysEqual } from "@mui/base";
 import React, { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router-dom";
 import { MutatingDots } from 'react-loader-spinner'
 
 export const ItemDetailContainer = ({ greeting }) => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const { id } = useParams();
+
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await fetch("https://fakestoreapi.com/products/")
+        const res = await fetch("https://fakestoreapi.com/products/" + id)
         const data = await res.json();
         setProduct(data);
       } catch {
@@ -20,7 +23,7 @@ export const ItemDetailContainer = ({ greeting }) => {
       }
     };
     getProducts();
-  }, []);
+  }, [id]);
 
   return (
     <>

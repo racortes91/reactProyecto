@@ -1,9 +1,25 @@
-import React from 'react'
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Context } from "../../Context/CustomContext";
+import { Link } from "react-router-dom";
 
-export const Cart = () => {
+export const Cart = ({ estilo, color }) => {
+  const { cart } = useContext(Context);
   return (
-    <h1>Carrito</h1>
-  )
-}
-
+    <>
+      {cart.length === 0 ? (
+        <>
+          <h1 className={estilo ? "red" : "green"}>
+            No hay productos agregados <Link to="/">Agrega Aquí</Link>
+          </h1>
+          <h2 className={`tamanio ${color || ''}`}>Gracias por tu visita</h2>
+        </>
+      ) : (
+        <>
+          {cart.map((producto) => (
+            <h1 key={producto.id}>{producto.title}</h1>
+          ))}
+        </>
+      )}
+    </>
+  );
+};
