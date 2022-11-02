@@ -14,6 +14,7 @@ const App = () => {
     <BrowserRouter>
       <CustomProvider>
         <Navbar />
+
         <Routes>
           <Route path="/" element={<ItemListContainer greeting={mensaje} />} />
           <Route

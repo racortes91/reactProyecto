@@ -1,4 +1,10 @@
-div {
-    color: white;
+.contenedor__carrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
+p {
+    font-size: 20px;
 }

@@ -1,0 +1,12 @@
+.contenedor__carrito {
+    display: flex;
+    justify-content: space-around;
+    padding: 100px;
+}
+
+.contenedor__vacio {
+    display: flex;
+    justify-content: space-around;
+    padding: 100px;
+}
+

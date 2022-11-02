@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <header>
       <Link  to="/">
-        <img  src={logo} alt="ecommerce" />
+        <img  src='gs://reacecommerce.appspot.com/logo.jpeg' alt="ecommerce" />
       </Link>
       <nav>
         {categorias.map((categoria) => {

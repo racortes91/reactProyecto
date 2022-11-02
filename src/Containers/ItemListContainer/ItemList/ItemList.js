@@ -12,13 +12,5 @@ const ItemList = ({ products }) => {
     )
 }
 
-// const styles = {
-//     container:{
-//       display: "flex",
-//       justifyContent: "space-around",
-//       alignItems: "center",
-//       flexWrap: "wrap",
-//     }
-//   }
 
 export default ItemList

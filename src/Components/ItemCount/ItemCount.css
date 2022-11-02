@@ -1,0 +1,45 @@
+.contenedor__item {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+
+}
+
+.btn__restar {
+    display: flex;
+    font-size: 20px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    height: 40px;
+}
+
+.btn__sumar {
+    display: flex;
+    font-size: 20px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    height: 40px;
+}
+
+.btn__agregar {
+    display: flex;
+    font-size: 20px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    height: 40px;
+}
+
+.btn__texto {
+    display: flex;
+    padding: 0%;
+    font-size: 15px;
+    color: white;
+    height: 40px;
+}
+
+

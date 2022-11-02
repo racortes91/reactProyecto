@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
-import { ClassNames } from "@emotion/react";
 import "./ItemListContainer.css";
-import { MutatingDots } from 'react-loader-spinner'
+import { MutatingDots } from 'react-loader-spinner'; 
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { dataBase } from "../../../firebase/firebase";
 
-
-
-
-export const ItemListContainer = ({ greeting }) => {
+ 
+export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   
@@ -16,23 +15,41 @@ export const ItemListContainer = ({ greeting }) => {
   const URL_BASE = 'https://fakestoreapi.com/products'
   const URL_CAT = `${URL_BASE}/category/${id}`
 
+  const productCollection = collection(dataBase, 'productos');
+
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const res = await fetch(id ? URL_CAT : URL_BASE);
-        const data = await res.json();
-        const productos = data.map(item => {
-          return {...item, stock:Math.floor(Math.random() * 50)}
-        });
-        console.log(productos);
-        setProducts(productos);
-      } catch {
-        console.log("error");
-      } finally {
-        setLoading(false);
-      }
-    };
-    getProducts();
+
+    getDocs(productCollection)
+    .then((result) => {
+     const productLista = result.docs.map( (item) => {
+        return {
+          ...item.data(),
+          id: item.id,
+      };
+    });
+    setProducts(productLista);
+  })
+  
+  .catch ((error) => {
+
+  }) 
+   .finally(setLoading(false));
+    
+    // const getProducts = async () => {
+    //   try {
+    //     const res = aw ait fetch(id ? URL_CAT : U RL_BASE);
+    //     const data = await res.json();
+    //     const productos = data.map(item => {
+    //       return {...item, stock:Math.floor(Math.random() * 50)}
+    //     });
+    //     setProducts(productos);
+    //   } catch {
+  
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
+    // getProducts();
 
   }, [id, URL_BASE, URL_CAT]);
 
