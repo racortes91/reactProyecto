@@ -15,6 +15,8 @@ export const ItemListContainer = () => {
   const URL_BASE = 'https://fakestoreapi.com/products'
   const URL_CAT = `${URL_BASE}/category/${id}`
 
+const q = query(productCollection, where('category', '==', '7FcAxiTQJOebBa1qNJdC'))
+
   const productCollection = collection(dataBase, 'productos');
 
   useEffect(() => {
