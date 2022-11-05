@@ -2,6 +2,7 @@ import React from "react";
 import { CartWidget } from "../CartWidget/CartWidget";
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 
 

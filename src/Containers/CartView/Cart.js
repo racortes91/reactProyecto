@@ -4,14 +4,8 @@ import { Link } from "react-router-dom";
 import './Cart.css';
 
 
-
 export const Cart = ({ estilo, color }) => {
   const { cart } = useContext(Context);
-
-  let add = 35;
-  let precioFinal = (100 * add);
-
-  console.log(cart.length);
 
   return (
     <>
@@ -32,7 +26,7 @@ export const Cart = ({ estilo, color }) => {
 
             <div className="contenedor__carrito">
               <h1 key={producto.id}>{producto.title}</h1>
-              <p>${precioFinal}</p>
+              <p>$</p>
             </div>
 
           ))}

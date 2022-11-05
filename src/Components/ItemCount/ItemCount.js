@@ -4,8 +4,6 @@ import './ItemCount.css';
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [count, setCount] = useState(initial);
 
-stock = 300;
-
   const subtract = () => {
     if (count > 1) {
       setCount(count - 1);
